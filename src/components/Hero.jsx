@@ -1,8 +1,9 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Counter from './Counter';
 
-const Hero = () => {
+const Hero = ({ startDate }) => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-br from-pink-100 to-purple-100 text-center px-4">
 
@@ -75,10 +76,19 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.6 }}
-                className="text-base md:text-lg text-gray-600 font-body max-w-xl relative z-10"
+                className="text-base md:text-lg text-gray-600 font-body max-w-xl relative z-10 mb-8"
             >
                 This is our story, our journey, our forever.
             </motion.p>
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2 }}
+                className="relative z-10"
+            >
+                <Counter startDate={startDate} />
+            </motion.div>
 
             <motion.div
                 animate={{ y: [0, 10, 0] }}

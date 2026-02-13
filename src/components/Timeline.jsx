@@ -12,9 +12,9 @@ import disha6 from '../assets/disha6.jpeg';
 
 const events = [
     {
-        date: '28 November 2019',
-        title: 'Wedding Day',
-        description: 'The best \'Yes\' I have ever said. Our Roka.',
+        date: '',
+        title: 'Roka',
+        description: 'The best \'Yes\' I have ever said.',
         icon: <Heart className="w-6 h-6 text-white" />,
         image: disha1,
     },
@@ -40,18 +40,18 @@ const events = [
         image: disha4,
     },
     {
-        date: 'Now',
-        title: 'Present Day',
-        description: 'Every moment with you is a treasure.',
-        icon: <Star className="w-6 h-6 text-white" />,
-        image: disha5,
-    },
-    {
         date: 'Our First Home',
         title: 'Found Our Destination',
         description: 'When two travellers have finally found their destination.',
         icon: <Home className="w-6 h-6 text-white" />,
         image: disha6,
+    },
+    {
+        date: 'Now',
+        title: 'Today',
+        description: 'Every moment with you is a treasure.',
+        icon: <Star className="w-6 h-6 text-white" />,
+        image: disha5,
     },
 ];
 
