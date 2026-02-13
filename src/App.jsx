@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="bg-pink-50 min-h-screen text-gray-800 font-sans selection:bg-pink-200">
       <Header />
-      <Hero startDate={startDate} />
+      <Hero />
       <Timeline />
       <Proposal />
       <Footer />

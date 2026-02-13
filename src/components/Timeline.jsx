@@ -1,42 +1,57 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Coffee, Plane, Home, Star } from 'lucide-react';
+import { Heart, Sparkles, Plane, Calendar, Home, Star } from 'lucide-react';
+
+// Import images
+import disha1 from '../assets/disha1.jpeg';
+import disha2 from '../assets/disha2.jpeg';
+import disha3 from '../assets/disha3.jpeg';
+import disha4 from '../assets/disha4.jpeg';
+import disha5 from '../assets/disha5.jpeg';
+import disha6 from '../assets/disha6.jpeg';
 
 const events = [
     {
-        date: 'February 14, 2022',
-        title: 'The Day It All Started',
-        description: 'The day I met my favorite person. Who knew a simple "hello" would lead to this?',
+        date: '28 November 2019',
+        title: 'Wedding Day',
+        description: 'The best \'Yes\' I have ever said. Our Roka.',
         icon: <Heart className="w-6 h-6 text-white" />,
-        image: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=600',
+        image: disha1,
     },
     {
-        date: 'March 1, 2022',
-        title: 'First Date',
-        description: 'We went to that little coffee shop. I was so nervous, but your smile made everything perfect.',
-        icon: <Coffee className="w-6 h-6 text-white" />,
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=600',
-    },
-    {
-        date: 'August 15, 2022',
-        title: 'Our First Trip',
-        description: 'Exploring new places with you is my favorite adventure. Those sunsets were magical.',
+        date: 'Our First Trip',
+        title: 'Adventure Begins',
+        description: 'Best kept secret which wasn\'t on the itinerary.',
         icon: <Plane className="w-6 h-6 text-white" />,
-        image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=80&w=600',
+        image: disha2,
     },
     {
-        date: 'December 25, 2022',
-        title: 'First Christmas Together',
-        description: 'The best gift I could ever ask for is just being with you.',
+        date: 'Our First Diwali',
+        title: 'Festival of Lights',
+        description: 'Celebrating our first Diwali together.',
+        icon: <Sparkles className="w-6 h-6 text-white" />,
+        image: disha3,
+    },
+    {
+        date: 'First Anniversary',
+        title: 'One Year Together',
+        description: 'Celebrating our first year of love and togetherness.',
+        icon: <Calendar className="w-6 h-6 text-white" />,
+        image: disha4,
+    },
+    {
+        date: 'Now',
+        title: 'Present Day',
+        description: 'Every moment with you is a treasure.',
         icon: <Star className="w-6 h-6 text-white" />,
-        image: 'https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&q=80&w=600',
+        image: disha5,
     },
     {
-        date: 'Today',
-        title: 'Still Falling for You',
-        description: 'Every day with you is a blessing. I love you more than words can say.',
+        date: 'Our First Home',
+        title: 'Found Our Destination',
+        description: 'When two travellers have finally found their destination.',
         icon: <Home className="w-6 h-6 text-white" />,
-        image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=600',
+        image: disha6,
     },
 ];
 
@@ -61,8 +76,8 @@ const TimelineItem = ({ event, index }) => {
                 whileHover={{ scale: 1.05 }}
                 className={`w-full md:w-5/12 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-xl border-t-4 border-pink-500 md:mt-0 ${isLeft ? 'md:text-right text-center' : 'md:text-left text-center'}`}
             >
-                <div className="overflow-hidden rounded-lg mb-4 h-48 shadow-md">
-                    <img src={event.image} alt={event.title} className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
+                <div className="overflow-hidden rounded-lg mb-4 h-64 md:h-80 shadow-md bg-gray-100">
+                    <img src={event.image} alt={event.title} className="w-full h-full object-contain transform hover:scale-105 transition-transform duration-500" />
                 </div>
                 <span className="text-pink-600 font-semibold tracking-wider block mb-1 uppercase text-sm">{event.date}</span>
                 <h3 className="text-2xl font-bold text-gray-800 mb-2 font-display">{event.title}</h3>
@@ -75,32 +90,31 @@ const TimelineItem = ({ event, index }) => {
 const Timeline = () => {
     return (
         <div className="relative py-20 px-4 max-w-6xl mx-auto overflow-hidden">
-            {/* Floating Hearts Background (CSS or SVG) */}
+            {/* Falling Hearts Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                {[...Array(20)].map((_, i) => (
+                {[...Array(25)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute text-pink-200"
                         initial={{
-                            top: "100%",
+                            top: "-10%",
                             left: `${Math.random() * 100}%`,
-                            opacity: 0,
-                            scale: 0.5
+                            opacity: 0.6,
+                            scale: Math.random() * 0.5 + 0.5
                         }}
                         animate={{
-                            top: "-10%",
-                            opacity: [0, 1, 0],
-                            scale: [0.5, 1, 0.5],
-                            rotate: [0, 180]
+                            top: "110%",
+                            opacity: [0.6, 1, 0.6, 0],
+                            rotate: [0, 360]
                         }}
                         transition={{
-                            duration: 10 + Math.random() * 10,
+                            duration: Math.random() * 6 + 10,
                             repeat: Infinity,
-                            delay: Math.random() * 5,
+                            delay: Math.random() * 8,
                             ease: "linear"
                         }}
                     >
-                        <Heart size={Math.random() * 30 + 10} fill="currentColor" />
+                        <Heart size={Math.random() * 25 + 15} fill="currentColor" />
                     </motion.div>
                 ))}
             </div>
